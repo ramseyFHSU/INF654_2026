@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Makes the website responsive on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Week 2 - Materialize CSS</title>
+
+    <!-- =========================================
+         MATERIALIZE CSS
+         ========================================= -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.3.3/dist/css/materialize.min.css"
+    />
+
+    <!-- =========================================
+         GOOGLE MATERIAL ICONS
+         ========================================= -->
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- =========================================
+         CUSTOM CSS
+         Always place our CSS AFTER Materialize
+         so we can override framework styles.
+         ========================================= -->
+
+    <style>
+      body {
+        padding-bottom: 60px;
+      }
+
+      section {
+        margin-top: 60px;
+        margin-bottom: 60px;
+      }
+
+      /*
+        Only style columns that are inside
+        our grid-demo example.
+      */
+
+      .grid-demo .col {
+        background: burlywood;
+        border: 1px solid white;
+        min-height: 80px;
+        line-height: 80px;
+        text-align: center;
+      }
+
+      /*
+        Adds some space around the
+        z-depth examples.
+      */
+
+      .depth-demo {
+        padding: 25px;
+        text-align: center;
+        background: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
+
+    <nav class="amber">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="#!" class="brand-logo black-text">Week 2</a>
+
+          <!-- Mobile Menu Button -->
+
+          <a
+            href="#!"
+            class="sidenav-trigger black-text"
+            data-target="mobile-menu"
+          >
+            <i class="material-icons">menu</i>
+          </a>
+
+          <!-- Desktop Navigation -->
+
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="#helpers" class="black-text">Helpers</a>
+            </li>
+
+            <li>
+              <a href="#buttons" class="black-text">Buttons</a>
+            </li>
+
+            <li>
+              <a href="#grid" class="black-text">Grid</a>
+            </li>
+
+            <li>
+              <a href="#cards" class="black-text">Cards</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =========================================
+         MOBILE SIDE NAVIGATION
+         ========================================= -->
+
+    <ul class="sidenav" id="mobile-menu">
+      <li><a href="#helpers">Helpers</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#grid">Grid</a></li>
+      <li><a href="#cards">Cards</a></li>
+    </ul>
+
+    <!-- =========================================
+         MAIN CONTENT
+         ========================================= -->
+
+    <main class="container">
+      <!-- =========================================
+           1. VISIBILITY / HIDE HELPERS
+           ========================================= -->
+
+      <section id="helpers">
+        <h3>Visibility Helpers</h3>
+
+        <p>
+          Materialize provides helper classes that allow us to hide elements
+          depending on the size of the screen.
+        </p>
+
+        <h5 class="hide">
+          You should never see this because it is hidden on all screens.
+        </h5>
+
+        <h5 class="hide-on-small-only">I am hidden on small screens only.</h5>
+
+        <h5 class="hide-on-med-only">I am hidden on medium screens only.</h5>
+
+        <h5 class="hide-on-large-only">I am hidden on large screens only.</h5>
+
+        <h5 class="hide-on-med-and-down">
+          I am hidden on medium and smaller screens.
+        </h5>
+      </section>
+
+      <!-- =========================================
+           2. COLORS
+           ========================================= -->
+
+      <section>
+        <h3>Colors</h3>
+
+        <p>
+          Materialize provides predefined color classes that we can add directly
+          to HTML elements.
+        </p>
+
+        <h5 class="amber black-text">Standard Amber</h5>
+
+        <h5 class="amber lighten-4 black-text">Amber Lighten 4</h5>
+
+        <h5 class="amber lighten-1 black-text">Amber Lighten 1</h5>
+
+        <h5 class="amber darken-1 black-text">Amber Darken 1</h5>
+
+        <h5 class="blue white-text">Blue background with white text</h5>
+
+        <h5 class="green-text text-darken-2">Green text</h5>
+      </section>
+
+      <!-- =========================================
+           3. TEXT ALIGNMENT
+           ========================================= -->
+
+      <section>
+        <h3>Text Alignment</h3>
+
+        <h5 class="left-align">Left Alignment</h5>
+
+        <h5 class="center-align">Center Alignment</h5>
+
+        <h5 class="right-align">Right Alignment</h5>
+
+        <!-- Vertical alignment example -->
+
+        <div class="grey lighten-2 valign-wrapper" style="height: 150px">
+          <h5 class="center-align" style="width: 100%">Vertical Alignment</h5>
+        </div>
+      </section>
+
+      <!-- =========================================
+           4. TRUNCATE
+           ========================================= -->
+
+      <section>
+        <h3>Truncate</h3>
+
+        <p>
+          The truncate class keeps long text on one line and replaces
+          overflowing content with an ellipsis.
+        </p>
+
+        <p class="truncate">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla
+          assumenda voluptate deserunt quam. Tenetur ex placeat, officiis eaque
+          molestias perspiciatis dolores exercitationem corporis laboriosam!
+          Dolore!
+        </p>
+      </section>
+
+      <!-- =========================================
+           5. BUTTONS
+           ========================================= -->
+
+      <section id="buttons">
+        <h3>Buttons</h3>
+
+        <p>Materialize provides several button styles and utility classes.</p>
+
+        <!-- Standard Button -->
+
+        <button type="button" class="btn">Button</button>
+
+        <!-- Small Button -->
+
+        <button type="button" class="btn-small">Small</button>
+
+        <!-- Large Button -->
+
+        <button type="button" class="btn-large">Large</button>
+
+        <!-- Flat Button -->
+
+        <button type="button" class="btn-flat">Flat</button>
+
+        <br /><br />
+
+        <!-- Custom Color -->
+
+        <button type="button" class="btn amber black-text">Amber</button>
+
+        <!-- Waves Effect -->
+
+        <button type="button" class="btn amber black-text waves-effect">
+          Waves
+        </button>
+
+        <!-- Custom Waves Color -->
+
+        <button
+          type="button"
+          class="btn amber black-text waves-effect waves-purple"
+        >
+          Purple Waves
+        </button>
+
+        <!-- Disabled Button -->
+
+        <button type="button" class="btn disabled">Disabled</button>
+
+        <br /><br />
+
+        <!-- Floating Button -->
+
+        <button type="button" class="btn-floating" aria-label="Close">
+          <i class="material-icons">close</i>
+        </button>
+
+        <!-- Floating Button with Pulse -->
+
+        <button
+          type="button"
+          class="btn-floating red pulse"
+          aria-label="Favorite"
+        >
+          <i class="material-icons">favorite</i>
+        </button>
+      </section>
+
+      <!-- =========================================
+           6. ICONS
+           ========================================= -->
+
+      <section>
+        <h3>Icons</h3>
+
+        <p>Materialize works with Google's Material Icons.</p>
+
+        <i class="material-icons red-text medium"> error </i>
+
+        <i class="material-icons blue-text medium"> cloud </i>
+
+        <i class="material-icons yellow-text text-darken-4 medium"> folder </i>
+
+        <i class="material-icons orange-text medium"> warning </i>
+
+        <br /><br />
+
+        <!-- Icon inside button -->
+
+        <button type="button" class="btn">
+          <i class="material-icons left">email</i>
+          Email
+        </button>
+
+        <button type="button" class="btn">
+          <i class="material-icons right">send</i>
+          Send
+        </button>
+      </section>
+
+      <!-- =========================================
+           7. GRID SYSTEM
+           ========================================= -->
+
+      <section id="grid">
+        <h3>Grid System</h3>
+
+        <p>
+          Materialize uses a 12-column responsive grid system. Columns inside a
+          row normally add up to 12.
+        </p>
+
+        <!-- =====================================
+             FULL WIDTH
+             ===================================== -->
+
+        <h5>12 Columns</h5>
+
+        <div class="row grid-demo">
+          <div class="col s12">s12</div>
+        </div>
+
+        <!-- =====================================
+             TWO COLUMNS
+             ===================================== -->
+
+        <h5>6 + 6 = 12</h5>
+
+        <div class="row grid-demo">
+          <div class="col s6">s6</div>
+
+          <div class="col s6">s6</div>
+        </div>
+
+        <!-- =====================================
+             THREE COLUMNS
+             ===================================== -->
+
+        <h5>4 + 4 + 4 = 12</h5>
+
+        <div class="row grid-demo">
+          <div class="col s4">s4</div>
+
+          <div class="col s4">s4</div>
+
+          <div class="col s4">s4</div>
+        </div>
+
+        <!-- =====================================
+             FOUR COLUMNS
+             ===================================== -->
+
+        <h5>3 + 3 + 3 + 3 = 12</h5>
+
+        <div class="row grid-demo">
+          <div class="col s3">s3</div>
+
+          <div class="col s3">s3</div>
+
+          <div class="col s3">s3</div>
+
+          <div class="col s3">s3</div>
+        </div>
+
+        <!-- =====================================
+             RESPONSIVE GRID
+             ===================================== -->
+
+        <h4>Responsive Grid</h4>
+
+        <p>
+          We can tell Materialize how many columns an element should use on
+          small, medium, and large screens.
+        </p>
+
+        <div class="row grid-demo">
+          <div class="col s12 m6 l3">s12 m6 l3</div>
+
+          <div class="col s12 m6 l3">s12 m6 l3</div>
+
+          <div class="col s12 m6 l3">s12 m6 l3</div>
+
+          <div class="col s12 m6 l3">s12 m6 l3</div>
+        </div>
+
+        <p>
+          <strong>s12</strong> = full width on small screens
+          <br />
+
+          <strong>m6</strong> = half width on medium screens
+          <br />
+
+          <strong>l3</strong> = one quarter width on large screens
+        </p>
+      </section>
+
+      <!-- =========================================
+           8. Z-DEPTH / SHADOWS
+           ========================================= -->
+
+      <section>
+        <h3>Z-Depth</h3>
+
+        <p>
+          Z-depth classes create different levels of shadow. Higher numbers
+          create stronger shadows.
+        </p>
+
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="depth-demo z-depth-1">z-depth-1</div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="depth-demo z-depth-2">z-depth-2</div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="depth-demo z-depth-3">z-depth-3</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="depth-demo z-depth-4">z-depth-4</div>
+          </div>
+
+          <div class="col s12 m6">
+            <div class="depth-demo z-depth-5">z-depth-5</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================
+           9. CARDS
+           ========================================= -->
+
+      <section id="cards">
+        <h3>Cards</h3>
+
+        <p>
+          Cards allow us to organize related information into a visually
+          separated component.
+        </p>
+
+        <div class="row">
+          <!-- CARD 1 -->
+
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <!-- Card Image -->
+
+              <div class="card-image">
+                <img
+                  src="images/js.png"
+                  alt="JavaScript logo"
+                  class="responsive-img"
+                />
+
+                <!-- Floating Favorite Button -->
+
+                <button
+                  type="button"
+                  class="halfway-fab btn-floating red pulse"
+                  aria-label="Favorite JavaScript course"
+                >
+                  <i class="material-icons"> favorite </i>
+                </button>
+              </div>
+
+              <!-- Card Content -->
+
+              <div class="card-content white-text">
+                <span class="card-title"> JavaScript </span>
+
+                <p>
+                  JavaScript is a programming language used to add interactivity
+                  and dynamic behavior to websites.
+                </p>
+              </div>
+
+              <!-- Card Actions -->
+
+              <div class="card-action">
+                <a href="#!"> Learn More </a>
+
+                <a href="#!"> View Course </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <!-- Card Image -->
+
+              <div class="card-image">
+                <img
+                  src="images/js.png"
+                  alt="JavaScript logo"
+                  class="responsive-img"
+                />
+
+                <button
+                  type="button"
+                  class="halfway-fab btn-floating red"
+                  aria-label="Favorite JavaScript course"
+                >
+                  <i class="material-icons"> favorite </i>
+                </button>
+              </div>
+
+              <!-- Card Content -->
+
+              <div class="card-content white-text">
+                <span class="card-title"> Web Development </span>
+
+                <p>
+                  Modern websites combine HTML, CSS, JavaScript, frameworks,
+                  libraries, and responsive design techniques.
+                </p>
+              </div>
+
+              <!-- Card Actions -->
+
+              <div class="card-action">
+                <a href="#!"> Learn More </a>
+
+                <a href="#!"> View Course </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================
+         MATERIALIZE JAVASCRIPT
+         Place JavaScript near the end of body.
+         ========================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.3.3/dist/js/materialize.min.js"></script>
+
+    <!-- =========================================
+         OUR JAVASCRIPT
+         ========================================= -->
+
+    <script>
+      /*
+        Wait until the HTML document
+        has completely loaded.
+      */
+
+      document.addEventListener("DOMContentLoaded", () => {
+        /*
+          Find every element that has
+          the class "sidenav".
+        */
+
+        const sidenavs = document.querySelectorAll(".sidenav");
+
+        /*
+          Tell Materialize to initialize
+          those elements as side navigation menus.
+        */
+
+        M.Sidenav.init(sidenavs);
+      });
+    </script>
+  </body>
+</html>
