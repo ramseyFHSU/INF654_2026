@@ -1,0 +1,33 @@
+/*
+  FieldSync custom styles
+  -----------------------
+  The application intentionally relies on Materialize CSS for almost all styling.
+  This file only contains a few small adjustments that are easier to express
+  with custom CSS than with Materialize helper classes.
+*/
+
+body {
+  min-height: 100vh;
+}
+
+.observation-card {
+  border-radius: 10px;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+#observation-form {
+  width: min(90%, 420px);
+}
+
+@media screen and (max-width: 600px) {
+  .brand-logo {
+    font-size: 1.6rem !important;
+  }
+
+  .observation-card h5 {
+    font-size: 1.25rem;
+  }
+}
