@@ -5,31 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>FieldSync | Field Observation App</title>
+
     <meta name="theme-color" content="#2E7D32" />
 
+    <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/images/icons/icon-192.png" />
 
-    <!-- Materialize CSS used in the original FieldSync setup. -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="/css/materialize.min.css" />
 
-    <!-- Material Icons. -->
+    <!-- Material Icons -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
+
   <body class="grey lighten-4">
+    <!--NAVIGATION-->
     <header>
       <nav class="white z-depth-0">
         <div class="nav-wrapper container">
-          <a href="/" class="brand-logo green-text text-darken-3">FieldSync</a>
+          <a href="/" class="brand-logo green-text text-darken-3">
+            FieldSync
+          </a>
 
+          <!-- Mobile Menu Button -->
           <a
             href="#"
             data-target="mobile-menu"
@@ -39,52 +43,74 @@
             <i class="material-icons black-text">menu</i>
           </a>
 
+          <!-- Desktop Navigation -->
           <ul class="right hide-on-med-and-down">
             <li>
-              <a href="/" class="grey-text text-darken-4 waves-effect">Home</a>
+              <a href="/" class="grey-text text-darken-4 waves-effect">
+                Home
+              </a>
             </li>
+
             <li>
               <a
                 href="/pages/about.html"
                 class="grey-text text-darken-4 waves-effect"
-                >About</a
               >
+                About
+              </a>
             </li>
+
             <li>
               <a
                 href="/pages/contact.html"
                 class="grey-text text-darken-4 waves-effect"
-                >Contact</a
               >
+                Contact
+              </a>
             </li>
           </ul>
         </div>
       </nav>
     </header>
 
+    <!-- ========================================
+         MOBILE SIDE NAVIGATION
+    ========================================= -->
+
     <ul class="sidenav" id="mobile-menu">
       <li>
         <div class="user-view green darken-3">
           <span class="white-text name">FieldSync</span>
-          <span class="white-text email">Field Observation PWA</span>
+          <span class="white-text email"> Field Observation PWA </span>
         </div>
       </li>
+
       <li>
-        <a href="/"><i class="material-icons">home</i>Home</a>
+        <a href="/">
+          <i class="material-icons">home</i>
+          Home
+        </a>
       </li>
+
       <li>
-        <a href="/pages/about.html"
-          ><i class="material-icons">info_outline</i>About</a
-        >
+        <a href="/pages/about.html">
+          <i class="material-icons">info_outline</i>
+          About
+        </a>
       </li>
+
       <li>
-        <a href="/pages/contact.html"
-          ><i class="material-icons">mail_outline</i>Contact</a
-        >
+        <a href="/pages/contact.html">
+          <i class="material-icons">mail_outline</i>
+          Contact
+        </a>
       </li>
     </ul>
 
+    <!-- MAIN CONTENT -->
+
     <main>
+      <!-- Introduction Section -->
       <section class="container section">
         <div class="row">
           <div class="col s12 m8">
@@ -103,16 +129,20 @@
             </p>
           </div>
 
+          <!-- Project Status -->
           <div class="col s12 m4">
             <div class="card-panel white center-align project-status-card">
-              <i class="material-icons medium green-text text-darken-3"
-                >cloud_done</i
-              >
+              <i class="material-icons medium green-text text-darken-3">
+                cloud_done
+              </i>
+
               <h6>Firebase CRUD</h6>
+
               <p class="grey-text text-darken-1">
                 Observations are loaded from and saved to Cloud Firestore.
               </p>
 
+              <!-- PWA Install Button -->
               <button
                 id="installApp"
                 class="btn green darken-3 waves-effect waves-light"
@@ -126,28 +156,36 @@
         </div>
       </section>
 
+      <!-- 
+           OBSERVATIONS
+       -->
+
       <section class="observations container section">
         <div class="row valign-wrapper">
           <div class="col s8">
             <h4 class="grey-text text-darken-4">Recent Observations</h4>
           </div>
+
           <div class="col s4 right-align">
             <span
               id="observation-count"
               class="new badge green darken-3"
               data-badge-caption="records"
-              >0</span
             >
+              0
+            </span>
           </div>
         </div>
 
+        <!-- Status Message -->
         <div id="observation-status" class="grey-text text-darken-1">
           Loading observations...
         </div>
 
-        <!-- Firestore observation cards are inserted here by app.js. -->
+        <!-- Firestore observations inserted here -->
         <div id="observations-list"></div>
 
+        <!-- Open Add Observation Form -->
         <div class="center-align section">
           <button
             class="btn-floating btn-large green darken-3 waves-effect waves-light sidenav-trigger"
@@ -157,59 +195,81 @@
           >
             <i class="material-icons">add</i>
           </button>
-          <p class="grey-text text-darken-1" id="save-observation">
-            Add Observation
-          </p>
+
+          <p class="grey-text text-darken-1">Add Observation</p>
         </div>
       </section>
     </main>
 
+    <!-- 
+         ADD / EDIT OBSERVATION FORM -->
+
     <div class="sidenav" id="observation-form">
       <form class="container section" id="add-observation-form">
+        <!-- Form Title -->
         <h5 id="form-title" class="green-text text-darken-3">
           Add New Observation
         </h5>
+
         <p class="grey-text text-darken-1">
           Enter an observation and save it to Firebase Cloud Firestore.
         </p>
 
         <div class="divider"></div>
 
+        <!-- Observation Title -->
         <div class="input-field">
           <i class="material-icons prefix">title</i>
+
           <input id="title" type="text" class="validate" required />
-          <label for="title">Observation Title</label>
+
+          <label for="title"> Observation Title </label>
         </div>
 
+        <!-- Category -->
         <div class="input-field">
           <i class="material-icons prefix">category</i>
+
           <select id="category" required>
             <option value="" disabled selected>Choose a category</option>
+
             <option value="plant">Plant</option>
+
             <option value="wildlife">Wildlife</option>
+
             <option value="water">Water</option>
+
             <option value="trail">Trail Condition</option>
+
             <option value="other">Other</option>
           </select>
-          <label for="category">Category</label>
+
+          <label for="category"> Category </label>
         </div>
 
+        <!-- Location -->
         <div class="input-field">
           <i class="material-icons prefix">place</i>
+
           <input id="location" type="text" />
-          <label for="location">Location</label>
+
+          <label for="location"> Location </label>
         </div>
 
+        <!-- Description -->
         <div class="input-field">
           <i class="material-icons prefix">notes</i>
+
           <textarea
             id="description"
             class="materialize-textarea validate"
             required
           ></textarea>
-          <label for="description">Observation Description</label>
+
+          <label for="description"> Observation Description </label>
         </div>
 
+        <!-- Form Buttons -->
         <div class="center-align section">
           <button
             id="save-observation"
@@ -232,8 +292,17 @@
       </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- ========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <!-- Materialize JavaScript -->
+    <script src="/js/materialize.min.js"></script>
+
+    <!-- UI JavaScript -->
     <script src="/js/ui.js"></script>
+
+    <!-- Main Application JavaScript -->
     <script type="module" src="/js/app.js"></script>
   </body>
 </html>

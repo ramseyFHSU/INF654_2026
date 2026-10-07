@@ -2,10 +2,8 @@
 // Replace the placeholder values below with the configuration from
 // Firebase Console -> Project settings -> Your apps -> Web app.
 
-import { initializeApp } from
-  "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-import { getFirestore } from
-  "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",

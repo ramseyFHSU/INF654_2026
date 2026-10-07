@@ -23,7 +23,7 @@ export async function createObservation(formData) {
     title: formData.title.trim(),
     category: formData.category,
     location: formData.location.trim(),
-    notes: formData.description.trim(),
+    notes: formData.notes.trim(),
     status: "active",
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
@@ -32,9 +32,10 @@ export async function createObservation(formData) {
   return addDoc(observationsRef, observation);
 }
 
-// READ - one-time read example.
+// READ - one-time read example
 export async function loadObservationsOnce() {
   const q = query(observationsRef, orderBy("createdAt", "desc"));
+
   const snapshot = await getDocs(q);
 
   return snapshot.docs.map((docSnap) => ({
@@ -43,7 +44,7 @@ export async function loadObservationsOnce() {
   }));
 }
 
-// READ - real-time listener used by the app.
+// READ - real-time listener
 export function watchObservations(onData, onError) {
   const q = query(observationsRef, orderBy("createdAt", "desc"));
 
@@ -74,5 +75,6 @@ export async function updateObservation(id, changes) {
 // DELETE
 export async function deleteObservation(id) {
   const observationRef = doc(db, "observations", id);
+
   return deleteDoc(observationRef);
 }

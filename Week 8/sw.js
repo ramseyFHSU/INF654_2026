@@ -3,8 +3,8 @@
 // dynamic caching, offline fallback, versioning, cleanup, and Firebase CRUD.
 
 // Cache version is bumped because app.js and the app shell changed.
-const STATIC_CACHE = "fieldsync-static-v2";
-const DYNAMIC_CACHE = "fieldsync-dynamic-v2";
+const STATIC_CACHE = "fieldSync-static-v4";
+const DYNAMIC_CACHE = "fieldSync-dynamic-v4";
 const CACHE_PREFIX = "fieldsync-";
 const CURRENT_CACHES = [STATIC_CACHE, DYNAMIC_CACHE];
 

@@ -8,9 +8,7 @@ import {
   deleteObservation,
 } from "./observations-service.js";
 
-// ------------------------------
-// PWA: service worker registration
-// ------------------------------
+//service worker registration
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
     try {
@@ -22,9 +20,7 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-// ------------------------------
-// PWA: install button
-// ------------------------------
+// PWA:install button
 let installPrompt = null;
 const installButton = document.querySelector("#installApp");
 
@@ -55,9 +51,7 @@ window.addEventListener("appinstalled", () => {
   console.log("FieldSync was installed.");
 });
 
-// ------------------------------
-// Firebase CRUD UI
-// ------------------------------
+//Firebase CRUD UI
 const form = document.querySelector("#add-observation-form");
 const list = document.querySelector("#observations-list");
 const statusMessage = document.querySelector("#observation-status");
@@ -242,12 +236,10 @@ function startEdit(id) {
   if (typeof M !== "undefined") {
     M.updateTextFields();
     M.textareaAutoResize(form.querySelector("#description"));
-
     const categorySelect = form.querySelector("#category");
     const selectInstance = M.FormSelect.getInstance(categorySelect);
     if (selectInstance) selectInstance.destroy();
     M.FormSelect.init(categorySelect);
-
     const panel = M.Sidenav.getInstance(observationFormPanel);
     if (panel) panel.open();
   }
@@ -261,7 +253,7 @@ if (form) {
       title: form.querySelector("#title").value,
       category: form.querySelector("#category").value,
       location: form.querySelector("#location").value,
-      description: form.querySelector("#description").value,
+      notes: form.querySelector("#description").value,
     };
 
     try {
@@ -272,12 +264,13 @@ if (form) {
           title: formData.title.trim(),
           category: formData.category,
           location: formData.location.trim(),
-          notes: formData.description.trim(),
+          notes: formData.notes.trim(),
         });
 
         showToast("Observation updated in Firebase.");
       } else {
         await createObservation(formData);
+
         showToast("Observation saved to Firebase.");
       }
 
@@ -285,10 +278,12 @@ if (form) {
 
       if (typeof M !== "undefined") {
         const panel = M.Sidenav.getInstance(observationFormPanel);
+
         if (panel) panel.close();
       }
     } catch (error) {
       console.error("Could not save observation:", error);
+
       showToast(
         "Could not save the observation. Check Firebase setup and rules.",
       );
@@ -333,7 +328,7 @@ if (list) {
   });
 }
 
-// READ: keep the UI synchronized with Firestore in real time.
+//keep the UI synchronized with Firestore in real time.
 watchObservations(
   (observations) => {
     renderObservations(observations);
