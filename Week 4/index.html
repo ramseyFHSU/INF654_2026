@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FieldSync | Field Observation App</title>
+    <link rel="manifest" href="/mainfest.json" />
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Small FieldSync-specific stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body class="grey lighten-4">
+    <!-- =========================
+       NAVIGATION
+  ========================== -->
+    <header>
+      <nav class="white z-depth-0">
+        <div class="nav-wrapper container">
+          <a href="index.html" class="brand-logo green-text text-darken-3">
+            FieldSync
+          </a>
+
+          <!-- Mobile navigation trigger -->
+          <a
+            href="#"
+            data-target="mobile-menu"
+            class="sidenav-trigger right"
+            aria-label="Open navigation menu"
+          >
+            <i class="material-icons black-text">menu</i>
+          </a>
+
+          <!-- Desktop navigation -->
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="index.html" class="grey-text text-darken-4 waves-effect">
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="pages/about.html"
+                class="grey-text text-darken-4 waves-effect"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="pages/contact.html"
+                class="grey-text text-darken-4 waves-effect"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- =========================
+       MOBILE SIDE NAVIGATION
+  ========================== -->
+    <ul class="sidenav" id="mobile-menu">
+      <li>
+        <div class="user-view green darken-3">
+          <span class="white-text name">FieldSync</span>
+          <span class="white-text email">Field Observation App</span>
+        </div>
+      </li>
+
+      <li>
+        <a href="index.html">
+          <i class="material-icons">home</i>
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="pages/about.html">
+          <i class="material-icons">info_outline</i>
+          About
+        </a>
+      </li>
+
+      <li>
+        <a href="pages/contact.html">
+          <i class="material-icons">mail_outline</i>
+          Contact
+        </a>
+      </li>
+    </ul>
+
+    <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+    <main>
+      <!-- Application introduction -->
+      <section class="container section">
+        <div class="row">
+          <div class="col s12 m8">
+            <p class="green-text text-darken-3">
+              <strong>FIELD OBSERVATION APP</strong>
+            </p>
+
+            <h3 class="grey-text text-darken-4">
+              Collect observations wherever your work takes you.
+            </h3>
+
+            <p class="flow-text grey-text text-darken-1">
+              FieldSync will help users record observations while working in the
+              field. Later in the course, we will convert this website into a
+              Progressive Web App.
+            </p>
+          </div>
+
+          <div class="col s12 m4">
+            <div class="card-panel white center-align">
+              <i class="material-icons medium green-text text-darken-3"
+                >travel_explore</i
+              >
+              <h6>Project Setup</h6>
+              <p class="grey-text">Static interface for now</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+         OBSERVATION LIST
+    ========================== -->
+      <section class="observations container section">
+        <div class="row valign-wrapper">
+          <div class="col s8">
+            <h4 class="grey-text text-darken-4">Recent Observations</h4>
+          </div>
+          <div class="col s4 right-align">
+            <span
+              class="new badge green darken-3"
+              data-badge-caption="sample records"
+              >3</span
+            >
+          </div>
+        </div>
+
+        <!-- Observation 1 -->
+        <div class="card-panel white observation-card">
+          <div class="row valign-wrapper no-margin-bottom">
+            <div class="col s3 m2 center-align">
+              <i class="material-icons medium green-text text-darken-2">eco</i>
+            </div>
+
+            <div class="col s7 m8">
+              <span class="green-text text-darken-3"
+                ><strong>PLANT</strong></span
+              >
+              <h5 class="black-text">Wild Sunflower</h5>
+
+              <p class="grey-text text-darken-1">
+                Yellow flowering plant observed near the north trail entrance.
+              </p>
+
+              <p class="grey-text">
+                <i class="material-icons tiny">place</i>
+                North Trail &nbsp; | &nbsp; 10:20 AM
+              </p>
+            </div>
+
+            <div class="col s2 m2 right-align">
+              <button
+                class="btn-flat"
+                type="button"
+                aria-label="Delete Wild Sunflower observation"
+              >
+                <i class="material-icons grey-text text-darken-1"
+                  >delete_outline</i
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Observation 2 -->
+        <div class="card-panel white observation-card">
+          <div class="row valign-wrapper no-margin-bottom">
+            <div class="col s3 m2 center-align">
+              <i class="material-icons medium blue-text text-darken-2"
+                >water_drop</i
+              >
+            </div>
+
+            <div class="col s7 m8">
+              <span class="blue-text text-darken-3"
+                ><strong>WATER</strong></span
+              >
+              <h5 class="black-text">Creek Sample</h5>
+
+              <p class="grey-text text-darken-1">
+                Water sample collected near the pedestrian bridge for later
+                testing.
+              </p>
+
+              <p class="grey-text">
+                <i class="material-icons tiny">place</i>
+                Big Creek &nbsp; | &nbsp; 9:45 AM
+              </p>
+            </div>
+
+            <div class="col s2 m2 right-align">
+              <button
+                class="btn-flat"
+                type="button"
+                aria-label="Delete Creek Sample observation"
+              >
+                <i class="material-icons grey-text text-darken-1"
+                  >delete_outline</i
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Observation 3 -->
+        <div class="card-panel white observation-card">
+          <div class="row valign-wrapper no-margin-bottom">
+            <div class="col s3 m2 center-align">
+              <i class="material-icons medium amber-text text-darken-3"
+                >flutter_dash</i
+              >
+            </div>
+
+            <div class="col s7 m8">
+              <span class="amber-text text-darken-4"
+                ><strong>WILDLIFE</strong></span
+              >
+              <h5 class="black-text">Red-tailed Hawk</h5>
+
+              <p class="grey-text text-darken-1">
+                Hawk observed circling above the open grassland west of the
+                trail.
+              </p>
+
+              <p class="grey-text">
+                <i class="material-icons tiny">place</i>
+                West Field &nbsp; | &nbsp; 8:55 AM
+              </p>
+            </div>
+
+            <div class="col s2 m2 right-align">
+              <button
+                class="btn-flat"
+                type="button"
+                aria-label="Delete Red-tailed Hawk observation"
+              >
+                <i class="material-icons grey-text text-darken-1"
+                  >delete_outline</i
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add observation button -->
+        <div class="center-align section">
+          <button
+            class="btn-floating btn-large green darken-3 waves-effect waves-light sidenav-trigger"
+            type="button"
+            data-target="observation-form"
+            aria-label="Add a new observation"
+          >
+            <i class="material-icons">add</i>
+          </button>
+
+          <p class="grey-text text-darken-1">Add Observation</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+       ADD OBSERVATION FORM
+  ========================== -->
+    <div class="sidenav" id="observation-form">
+      <form class="container section" id="add-observation-form">
+        <h5 class="green-text text-darken-3">Add New Observation</h5>
+
+        <p class="grey-text text-darken-1">
+          Enter the information about what you observed in the field.
+        </p>
+
+        <div class="divider"></div>
+
+        <!-- Observation title -->
+        <div class="input-field">
+          <i class="material-icons prefix">title</i>
+          <input id="title" type="text" class="validate" required />
+          <label for="title">Observation Title</label>
+        </div>
+
+        <!-- Category -->
+        <div class="input-field">
+          <i class="material-icons prefix">category</i>
+          <select id="category">
+            <option value="" disabled selected>Choose a category</option>
+            <option value="plant">Plant</option>
+            <option value="wildlife">Wildlife</option>
+            <option value="water">Water</option>
+            <option value="trail">Trail Condition</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="category">Category</label>
+        </div>
+
+        <!-- Location -->
+        <div class="input-field">
+          <i class="material-icons prefix">place</i>
+          <input id="location" type="text" />
+          <label for="location">Location</label>
+        </div>
+
+        <!-- Description -->
+        <div class="input-field">
+          <i class="material-icons prefix">notes</i>
+          <textarea
+            id="description"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="description">Observation Description</label>
+        </div>
+
+        <!-- Submit button -->
+        <div class="center-align section">
+          <button
+            class="btn green darken-3 waves-effect waves-light"
+            type="submit"
+          >
+            Add Observation
+            <i class="material-icons right">add</i>
+          </button>
+        </div>
+
+        <p class="center-align grey-text">
+          The form is UI only for this setup lecture.
+        </p>
+      </form>
+    </div>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- FieldSync UI JavaScript -->
+    <script src="js/ui.js"></script>
+  </body>
+</html>
